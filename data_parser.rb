@@ -27,7 +27,8 @@ CSV.foreach('planet_express_logs.csv', headers: true) do |row|
   shipment_data << shipment
   case shipment["Destination"]
     when "Earth"
-      shipment['employee'] = "Fry"
+      shipment["Employee"] = "Fry"
+      fry_trips += 1
       fry_money += shipment["Money"].to_i
     when "Mars"
       shipment["Employee"] = "Amy"
@@ -59,10 +60,17 @@ employee_data.each do |row|
   total_money += row[:bonus] / bonusf
 end
 
+#To create the planet data, I would do cases on the planet unique values,
+#which can be found like below
+# unique_planets = shipment_data.map do |shipment|
+#   shipment["Destination"]
+# end.uniq
+#print unique_planets
+
+
 
 # Use puts to check data during the creation
 # puts total_money
-#
 # puts "===="
 #
 # puts employee_data
