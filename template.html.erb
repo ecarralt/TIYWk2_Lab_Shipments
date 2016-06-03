@@ -51,7 +51,7 @@
               <td><%= shipment["Destination"]%></td>
               <td><%= shipment["Shipment"]%></td>
               <td><%= shipment["Crates"]%></td>
-              <td><%= shipment["Money"]%></td>
+              <td><%= as_money(shipment["Money"]) %></td>
             </tr>
           <%end%>
         </table>
@@ -64,13 +64,13 @@
           <tr>
             <th>Employee</th>
             <th>Trips</th>
-            <th>Money</th>
+            <th>Bonus</th>
           </tr>
           <% employee_data.each do |employee| %>
             <tr>
               <td><%= employee[:employee]%></td>
               <td><%= employee[:trips]%></td>
-              <td><%= employee[:money]%></td>
+              <td><%= as_money(employee[:bonus])%></td>
             </tr>
           <%end%>
         </table>
